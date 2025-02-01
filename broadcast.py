@@ -96,3 +96,6 @@ def main():
 
         send_telegram_message(tgid, message, BOT_TOKEN)
         logger.info(f"Sent message to {user} ({i + 1}/{len(users)})")
+
+
+main()
