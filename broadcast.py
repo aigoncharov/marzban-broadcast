@@ -67,7 +67,11 @@ BOT_TOKEN = os.environ["TG_BOT_TOKEN"]
 
 def get_users():
     # Prepare headers with authorization token
-    headers = {"Authorization": f"Bearer {os.environ['ADMIN_TOKEN']}"}
+    headers = {
+        "Authorization": f"Bearer {os.environ['ADMIN_TOKEN']}",
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+    }
 
     # Make GET request to API
     response = requests.get(f"{os.environ['API_BASE_URL']}/api/user", headers=headers)
