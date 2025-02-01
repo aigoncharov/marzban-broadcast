@@ -74,7 +74,7 @@ def get_users():
     }
 
     # Make GET request to API
-    response = requests.get(f"{os.environ['API_BASE_URL']}/api/user", headers=headers)
+    response = requests.get(f"{os.environ['API_BASE_URL']}/api/users", headers=headers)
 
     # Check if request was successful
     if not response.ok:
@@ -95,11 +95,11 @@ def main():
         tgid = extract_tgid(user["username"])
 
         if tgid is None:
-            logger.info(f"Skipped {user} ({i + 1}/{len(users)})")
+            logger.info(f"Skipped {user["username"]} ({i + 1}/{len(users)})")
             continue
 
         send_telegram_message(tgid, message, BOT_TOKEN)
-        logger.info(f"Sent message to {user} ({i + 1}/{len(users)})")
+        logger.info(f"Sent message to {user["username"]} ({i + 1}/{len(users)})")
 
 
 main()
