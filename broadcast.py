@@ -9,6 +9,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 
+# https://github.com/kutovoys/marzban-torrent-blocker/blob/715cae4f043633971ed37488b0221b1fba7b9ce9/utils/utils.go#L105
 def send_telegram_message(
     chat_id: str, message: str, bot_token: str, parse_mode: Optional[str] = "HTML", disable_preview: bool = False
 ) -> None:
